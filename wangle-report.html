@@ -13116,31 +13116,33 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Twitter-Data-wangling-steps:">Twitter Data wangling steps:<a class="anchor-link" href="#Twitter-Data-wangling-steps:">&#182;</a></h1><h2 id="1--Gathering-Data">1- Gathering Data<a class="anchor-link" href="#1--Gathering-Data">&#182;</a></h2><hr>
-<h3 id="(A)-importing-data-from-csv-file:">(A) importing data from csv file:<a class="anchor-link" href="#(A)-importing-data-from-csv-file:">&#182;</a></h3>
+<h1 id="Twitter-Data-wangling:">Twitter Data wangling:<a class="anchor-link" href="#Twitter-Data-wangling:">&#182;</a></h1><p>twitter data wangangling was so motivated journey. I have gone through the data analysis process the the WeRateDogs twitter data and the dog's image prediction result. I got alot of information from this process about the best dog tweets.</p>
+<h2 id="introduction">introduction<a class="anchor-link" href="#introduction">&#182;</a></h2><p>we need to collect all the data we need to get the information we want to  know, then assess and clean it to be able for use in making insights and predictions either by using interferential statistics or machine learning algorithms.</p>
+<h3 id="1--Gathering-Data">1- Gathering Data<a class="anchor-link" href="#1--Gathering-Data">&#182;</a></h3><hr>
+<h4 id="(A)-importing-data-from-csv-file:">(A) importing data from csv file:<a class="anchor-link" href="#(A)-importing-data-from-csv-file:">&#182;</a></h4>
 <pre><code>I have used panads to read the csv file ("twitter-archive-enhanced.csv")
 
 </code></pre>
-<h3 id="(B)--getting-data-from-udacity-server:">(B)  getting data from udacity server:<a class="anchor-link" href="#(B)--getting-data-from-udacity-server:">&#182;</a></h3>
+<h4 id="(B)--getting-data-from-udacity-server:">(B)  getting data from udacity server:<a class="anchor-link" href="#(B)--getting-data-from-udacity-server:">&#182;</a></h4>
 <pre><code>I have used request libarary to get the data then used pandas read_csv to read the tsv file (image_predictions.tsv).
 </code></pre>
-<h3 id="(c)-Getting-data-from-twitter-API">(c) Getting data from twitter API<a class="anchor-link" href="#(c)-Getting-data-from-twitter-API">&#182;</a></h3>
+<h4 id="(c)-Getting-data-from-twitter-API">(c) Getting data from twitter API<a class="anchor-link" href="#(c)-Getting-data-from-twitter-API">&#182;</a></h4>
 <pre><code>by registering in twitter as a developer I used my twitter developer IDs
 I got more info about dog tweets so I saved them in tweets_data.csv
 
 -------------------------------------------------
 
 </code></pre>
-<h2 id="2--Accessing-Data">2- Accessing Data<a class="anchor-link" href="#2--Accessing-Data">&#182;</a></h2><blockquote><p>for each data set:
+<h3 id="2--Accessing-Data">2- Accessing Data<a class="anchor-link" href="#2--Accessing-Data">&#182;</a></h3><blockquote><p>for each data set:
 I have assessed it visually and programmatically</p>
 <p>by using:
 pandas bluidin function info(), head(), tail(). sample(), isnull() ...etc.</p>
 <p>and I has been writing the problems I see.</p>
 </blockquote>
-<h2 id="3---Cleaning-Data">3-  Cleaning Data<a class="anchor-link" href="#3---Cleaning-Data">&#182;</a></h2><blockquote><p>I used the 3 steps technique to clean the data (define ==&gt; code ==&gt; clean)
+<h3 id="3---Cleaning-Data">3-  Cleaning Data<a class="anchor-link" href="#3---Cleaning-Data">&#182;</a></h3><blockquote><p>I used the 3 steps technique to clean the data (define ==&gt; code ==&gt; clean)
 for each step in data cleaning.</p>
 </blockquote>
-<h3 id="the-step-of-data-cleaning.">the step of data cleaning.<a class="anchor-link" href="#the-step-of-data-cleaning.">&#182;</a></h3><h3 id="(A)-Quality-issues-clean">(A) Quality issues clean<a class="anchor-link" href="#(A)-Quality-issues-clean">&#182;</a></h3><blockquote><p>1-  making a copy of the 3 dataframes</p>
+<h4 id="the-step-of-data-cleaning.">the step of data cleaning.<a class="anchor-link" href="#the-step-of-data-cleaning.">&#182;</a></h4><h4 id="(A)-Quality-issues-clean">(A) Quality issues clean<a class="anchor-link" href="#(A)-Quality-issues-clean">&#182;</a></h4><blockquote><p>1-  making a copy of the 3 dataframes</p>
 <p>2- removing the unnecessary columns for my analysis</p>
 <p>3- the source column has 3 urls and it will be nicer and cleaner to make a word for each segmentation</p>
 <p>4- fix data types of the ids to make it easy to merge the tables</p>
@@ -13153,15 +13155,16 @@ so we'll drop all the nulls from or dataset</p>
 <p>10-  in tweets_clean (from the API) we need to change the data type of retweet_countfavorite_count and followers_count to be int</p>
 <p>11-  column p1 ,p2, p3 have names start with lowercase and uppercase so we have to make everything lower case</p>
 <p>12- rename the jpg_url to img_link</p>
-</blockquote>
-<h3 id="(B)-Tidiness-issues-clean">(B) Tidiness issues clean<a class="anchor-link" href="#(B)-Tidiness-issues-clean">&#182;</a></h3><p>&gt;</p>
-<blockquote><p>1- making the rating_numerator and rating_denominator to one rating column in archive_clean 
+<p>13-  cleaning the rate column and extracting the write info for it.</p>
+<h4 id="(B)-Tidiness-issues-clean">(B) Tidiness issues clean<a class="anchor-link" href="#(B)-Tidiness-issues-clean">&#182;</a></h4><p>1- making the rating_numerator and rating_denominator to one rating column in archive_clean 
 then remove the two columns</p>
 <p>2- making the doggo, floofer, pupper &amp; puppo to one dog_stage column in archive_clean 
 then remove the 4 columns.</p>
 <p>3- in the images_clean dataset, I have picked from the 3 Ps one according to the highest confident, then removing columns.</p>
 <p>then I have saved them in the <code>twitter_archive_master.csv</code> using pandas.</p>
 </blockquote>
+<h2 id="Conclusion:">Conclusion:<a class="anchor-link" href="#Conclusion:">&#182;</a></h2><p>After doing those 3 steps of Data wrangling we got a clean dataframe that we can save either in .csv file or in sql database.
+as it also ready to expore and make good visulization presenting the data in the way we need.</p>
 
 </div>
 </div>
